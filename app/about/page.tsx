@@ -1,20 +1,20 @@
-'use client'
-import { motion } from 'framer-motion'
-import Image from 'next/image'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import 'leaflet/dist/leaflet.css'
-import L from 'leaflet'
+"use client";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
 
 // Fix Leaflet icon issue
-delete L.Icon.Default.prototype._getIconUrl
+delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl: '/marker-icon-2x.png',
-  iconUrl: '/marker-icon.png',
-  shadowUrl: '/marker-shadow.png',
-})
+  iconRetinaUrl: "/marker-icon-2x.png",
+  iconUrl: "/marker-icon.png",
+  shadowUrl: "/marker-shadow.png",
+});
 
 export default function About() {
-  const position = [27.2939, -80.3503] // Port St. Lucie coordinates
+  const position = [27.2939, -80.3503]; // Port St. Lucie coordinates
 
   return (
     <div className="container mx-auto px-6 py-20">
@@ -37,17 +37,28 @@ export default function About() {
           <div className="md:w-1/2">
             <h2 className="text-2xl font-semibold mb-4">Our Story</h2>
             <p className="text-gray-600 mb-4">
-              South Florida Restaurant & Bar was established in 2022 with a vision to bring authentic Haitian and Caribbean cuisine to Port Saint Lucie. Our family-owned restaurant is dedicated to preserving the rich culinary traditions of Haiti while offering a modern dining experience.
+              South Florida Restaurant & Bar was established in 2022 with a
+              vision to bring authentic Haitian and Caribbean cuisine to Port
+              Saint Lucie. Our family-owned restaurant is dedicated to
+              preserving the rich culinary traditions of Haiti while offering a
+              modern dining experience.
             </p>
             <p className="text-gray-600 mb-4">
-              We take pride in using only the freshest ingredients and traditional cooking methods to create dishes that transport our guests to the vibrant streets of Port-au-Prince and the beautiful beaches of the Caribbean.
+              We take pride in using only the freshest ingredients and
+              traditional cooking methods to create dishes that transport our
+              guests to the vibrant streets of Port-au-Prince and the beautiful
+              beaches of the Caribbean.
             </p>
           </div>
         </div>
         <div className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
           <p className="text-gray-600 mb-4">
-            Our mission is to provide an unforgettable dining experience that celebrates the flavors, culture, and hospitality of Haiti and the Caribbean. We strive to create a warm and welcoming atmosphere where families and friends can come together to enjoy delicious food, great conversation, and make lasting memories.
+            Our mission is to provide an unforgettable dining experience that
+            celebrates the flavors, culture, and hospitality of Haiti and the
+            Caribbean. We strive to create a warm and welcoming atmosphere where
+            families and friends can come together to enjoy delicious food,
+            great conversation, and make lasting memories.
           </p>
         </div>
         <div className="mb-12">
@@ -73,14 +84,20 @@ export default function About() {
         <div>
           <h2 className="text-2xl font-semibold mb-4">Find Us</h2>
           <div className="h-96 rounded-lg overflow-hidden">
-            <MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{ height: '100%', width: '100%' }}>
+            <MapContainer
+              center={position}
+              zoom={13}
+              scrollWheelZoom={false}
+              style={{ height: "100%", width: "100%" }}
+            >
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
               <Marker position={position}>
                 <Popup>
-                  South Florida Restaurant & Bar <br /> 1622 SW Bayshore Blvd, Port St. Lucie, FL 34984
+                  South Florida Restaurant & Bar <br /> 1622 SW Bayshore Blvd,
+                  Port St. Lucie, FL 34984
                 </Popup>
               </Marker>
             </MapContainer>
@@ -88,7 +105,7 @@ export default function About() {
         </div>
       </motion.div>
     </div>
-  )
+  );
 }
 
 const TeamMember = ({ name, role, image }) => (
@@ -106,5 +123,4 @@ const TeamMember = ({ name, role, image }) => (
     <h3 className="text-xl font-semibold mb-2">{name}</h3>
     <p className="text-gray-600">{role}</p>
   </motion.div>
-)
-
+);
